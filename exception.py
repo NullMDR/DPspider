@@ -1,24 +1,24 @@
 #coding:utf-8
 
 class LoginError(Exception):
-	"""
-	用户登录失败或异常
-	"""
+    """
+    用户登录失败或异常
+    """
 
 class NoHomePage(Exception):
-	"""
-	需要先获取商铺首页内容
-	"""
+    """
+    需要先获取商铺首页内容
+    """
 
 class ForbiddenProxy(Exception):
-	"""
-	无效代理
-	"""
+    """
+    无效代理
+    """
 
 class NoCSStoDecrypt(Exception):
-	"""
-	没有获取到解析字体加密相关的css文件
-	"""
+    """
+    没有获取到解析字体加密相关的css文件
+    """
 
 class NoCityId(Exception):
     """
@@ -36,11 +36,11 @@ class InvalidCityUrl(Exception):
     """
 
 class NoTextFiled(Exception):
-	"""
-	没有找到相关的字段
-	"""
+    """
+    没有找到相关的字段
+    """
 
 class NoDatabaseFound(Exception):
-	"""
-	没有对应的数据库
-	"""
+    """
+    没有对应的数据库
+    """

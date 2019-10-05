@@ -94,10 +94,12 @@ CON_MAP = {
 }
 
 #一般请求的伪造浏览器信息和头部
-USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
 HEADERS = {
     'Host': 'www.dianping.com',
-    'User-Agent':USER_AGENT,
+    'User-Agent': USER_AGENT,
+    'DNT': '1',
+    'Sec-Fetch-Mode': 'no-cors'
 }
 
 #获取点评数据时需要登录，这里加入了Cooike信息

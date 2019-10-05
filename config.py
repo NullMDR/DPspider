@@ -1,7 +1,7 @@
 import time 
 
 #是否使用代理
-PROXY_ENABLE = True
+PROXY_ENABLE = False
 
 #使用单个的代理ip，优先级最高
 #此项若有填写，则使用此代理，后面的不会考虑
@@ -93,7 +93,7 @@ RECORD_ENABLE = True
 # -1表示无限次请求；
 # 0表示不重试；
 # >0的表示重试次数
-MAX_RETRY = -1
+MAX_RETRY = 0
 
 #店铺间的抓取时间间隔:秒
 SLEEP = 1

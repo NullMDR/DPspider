@@ -1,0 +1,15 @@
+2019-10-05 16:49:51 util.http(DEBUG) - 当前请求[CITY]:http://www.dianping.com/beijing
+2019-10-05 16:50:03 util.http(DEBUG) - 当前请求[CITY]:http://www.dianping.com/beijing
+2019-10-05 16:50:36 util.http(WARNING) - [失败-200] 重试抓取http://www.dianping.com/beijing 5 次后失败.
+2019-10-05 16:50:36 decorator(DEBUG) - <function send_http at 0x104a3c200> 耗时:32.79s
+2019-10-05 16:50:36 decorator(DEBUG) - <function City.get at 0x104a863b0> 耗时:32.79s
+2019-10-05 16:51:31 util.http(DEBUG) - 当前请求[CITY]:http://www.dianping.com/beijing
+2019-10-05 16:52:10 util.http(WARNING) - [失败-200] 重试抓取http://www.dianping.com/beijing 5 次后失败.
+2019-10-05 16:52:10 decorator(DEBUG) - <function send_http at 0x10e508200> 耗时:39.65s
+2019-10-05 16:52:10 decorator(DEBUG) - <function City.get at 0x10e5533b0> 耗时:39.65s
+2019-10-05 16:55:21 util.http(DEBUG) - 当前请求[CITY]:http://www.dianping.com/beijing
+2019-10-05 16:59:06 util.http(DEBUG) - 当前请求[CITY]:http://www.dianping.com/beijing
+2019-10-05 17:00:05 util.http(DEBUG) - 当前请求[CITY]:http://www.dianping.com/beijing
+2019-10-05 17:00:12 util.http(WARNING) - [失败-200] 重试抓取http://www.dianping.com/beijing 0 次后失败.
+2019-10-05 17:00:12 decorator(DEBUG) - <function send_http at 0x10be01200> 耗时:7.28s
+2019-10-05 17:00:12 decorator(DEBUG) - <function City.get at 0x10be4c3b0> 耗时:7.28s
