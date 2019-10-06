@@ -6,6 +6,7 @@ import time
 import random
 import threading
 from config import *
+from dump.dump_utils import set_last_failed_url
 from settings import *
 from decorator import timer
 from log import getLogger
@@ -99,6 +100,7 @@ def send_http(session, method, url, *,
         fail_callback()
     tries = fails if retries < 0 else retries
     logger.warn(f'[失败-{code}] 重试抓取{url} {tries} 次后失败.')
+    set_last_failed_url(url)
 
 
 def should_verify(resp):

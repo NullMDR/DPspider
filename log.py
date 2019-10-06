@@ -1,5 +1,8 @@
 # coding:utf-8
 import sys
+
+from tqdm import tqdm
+
 import config
 import logging
 
@@ -9,6 +12,21 @@ __all__ = ['getLogger']
 def getLogger(name):
     logger = Logger(name)
     return logger.logger
+
+
+class TqdmLoggingHandler(logging.Handler):
+    def __init__(self, level=logging.NOTSET):
+        super().__init__(level)
+
+    def emit(self, record):
+        try:
+            msg = self.format(record)
+            tqdm.write(msg)
+            self.flush()
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            self.handleError(record)
 
 
 class Logger(object):
@@ -50,7 +68,7 @@ class Logger(object):
                 f_handler.setLevel(logging.DEBUG)
                 f_handler.setFormatter(formatter)
                 handlers.append(f_handler)
-            s_handler = logging.StreamHandler(stream=sys.stdout)
+            s_handler = TqdmLoggingHandler()
             s_handler.setLevel(level)
             s_handler.setFormatter(formatter)
             handlers.append(s_handler)

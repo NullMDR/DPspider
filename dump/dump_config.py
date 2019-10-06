@@ -1,7 +1,7 @@
 DUMP_KEYWORD = '呷浦呷浦'
-DUMP_CITY_NAMES = ['北京', '上海']
+DUMP_CITY_NAMES = ['北京', '上海', '深圳', '广州', '长沙', '湘潭', '武汉', '荆门', '襄阳']
 DUMP_COOKIE = \
-    'cy=1; cye=shanghai; _lxsdk_cuid=16d964e8f81c8-07a5c07fc51d52-104a5976-13c680-16d964e8f8113; _lxsdk=16d964e8f81c8-07a5c07fc51d52-104a5976-13c680-16d964e8f8113; _hc.v=9cda6066-3d0c-8847-0bc0-e237da1c6f3a.1570184795; dper=857205489d83f8f28236fedd1f2f4dbc76d207c7aff361ec7cb6f7a356f7a20a57020752661d6f0b48fce3007a61f1e81e5a120257f059724cd1883c8943d13e3f69a4d8649ae6d845f17af2a7be740ef382b7b54869aa5e900c767946ee2c66; ua=htc; ctu=cdda3dcc6e6273461ec0aed0e115fc02ac489171e159bcade49ce1c06110cc27; ll=7fd06e815b796be3df069dec7836c3df; _lxsdk_s=16da0a745a5-b30-8e4-fde%7C%7C7'
+    'cy=1; cye=shanghai; _lxsdk_cuid=16da116382ec8-0bba3cddfbff68-1d3b6b54-13c680-16da116382ec8; _lxsdk=16da116382ec8-0bba3cddfbff68-1d3b6b54-13c680-16da116382ec8; _hc.v=15bcc9c2-f718-f4ae-16db-6c06952f0f6a.1570365652; aburl=1; Hm_lvt_dbeeb675516927da776beeb1d9802bd4=1570365658; Hm_lpvt_dbeeb675516927da776beeb1d9802bd4=1570365658; wed_user_path=27943|0; wedchatguest=g121834254765660529; _lxsdk_s=16da1163832-be0-f65-4c7%7C%7C63'
 
 DUMP_FOLDER = 'dump_data'
 DUMP_FILE_SHOPS = f'{DUMP_FOLDER}/shops.txt'
