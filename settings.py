@@ -8,8 +8,8 @@ HOST = 'http://www.dianping.com'
 API_CITY = 'https://www.dianping.com/{city}'
 API_CITY_LIST = 'http://www.dianping.com/citylist'
 API_CITY_HOT = 'http://www.dianping.com/bar/search?cityId={id}'
-API_CITY_MAP = 'http://www.dianping.com/search/map/keyword/{id}/0_1'
-API_SHOP  = 'http://www.dianping.com/shop/{id}/review_all'
+API_CITY_MAP = 'http://www.dianping.com/search/map/keyword/{id}/0_{keyword}'
+API_SHOP = 'http://www.dianping.com/shop/{id}/review_all'
 API_REVIEWS = 'http://www.dianping.com/shop/{id}/review_all/p{page}'
 API_SHOP_DETAIL  = 'http://www.dianping.com/shop/{id}'
 API_SEARCH = 'https://www.dianping.com/search/keyword/{cityId}/0_{keyword}'
@@ -98,8 +98,7 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36
 HEADERS = {
     'Host': 'www.dianping.com',
     'User-Agent': USER_AGENT,
-    'DNT': '1',
-    'Sec-Fetch-Mode': 'no-cors'
+    'Cookie': COOKIE
 }
 
 #获取点评数据时需要登录，这里加入了Cooike信息
@@ -107,7 +106,7 @@ HEADERS = {
 LOGIN_HEADERS = {
     'Host': 'www.dianping.com',
     'User-Agent':USER_AGENT,
-    'Cookie':COOKIE,
+    'Cookie': COOKIE,
 }
 
 #请求资源前缀
@@ -119,7 +118,7 @@ CSS_HEADERS ={
     'Host':'s3plus.meituan.net',
     'Accept-Encoding': 'gzip, deflate',
     'Upgrade-Insecure-Requests': '1',
-    'User-Agent':USER_AGENT,
+    'User-Agent': USER_AGENT,
 }
 
 #获取城市数据信息的POST头部
@@ -143,10 +142,14 @@ SEARCH_MAP_POST_HEADERS = {
     'X-Requested-With': 'XMLHttpRequest',
     'Accept': 'application/json, text/javascript',
     'Origin': 'http://www.dianping.com',
-    'Referer':'http://www.dianping.com/search/map/keyword/2/0_1',
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-    'User-Agent':USER_AGENT,
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+    'DNT': '1',
+    'User-Agent': USER_AGENT,
+    'Cookie': COOKIE
 }
+SEARCH_MAP_POST_REFERER = 'http://www.dianping.com/search/map/keyword/{}/{}_{}'
 
 #地图搜索的过滤器对应标签
 SEARCH_MAP_FILTERS = {

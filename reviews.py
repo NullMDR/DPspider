@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 
 import json
 import codecs
@@ -7,11 +7,12 @@ from exception import NoDatabaseFound
 
 logger = getLogger(__name__)
 
+
 class Review(object):
 
-    def __init__(self,userName,userId,userUrl,userImg,userLevel,userVip,
-                 star,score,reviewId,reviewUrl,reviewTime,reviewShop,reviewShopId,
-                 reviewPics,reviewWords,actions
+    def __init__(self, userName, userId, userUrl, userImg, userLevel, userVip,
+                 star, score, reviewId, reviewUrl, reviewTime, reviewShop, reviewShopId,
+                 reviewPics, reviewWords, actions
                  ):
         self.userName = userName
         self.userId = userId
@@ -52,26 +53,23 @@ class Review(object):
         }
         return data
 
-    def save(self,db=None,tname=None):
+    def save(self, db=None, tname=None):
         self.tname = tname if tname else db.table
         if db is None:
             raise NoDatabaseFound
-        if db.select({'点评ID':{'=':self.id}},tname=tname):
+        if db.select({'点评ID': {'=': self.id}}, tname=tname):
             return
         else:
             try:
-                db.save(self.data,tname=tname)
+                db.save(self.data, tname=tname)
             except Exception as e:
                 logger.error(f'保存点评:{self.id}出错 - {e.__class__.__name__}:{e}')
             else:
                 logger.info(f'点评 ID:{self.id},店铺:{self.shopName}  保存成功,数据表:{self.tname}')
 
-    def write(self,path=None, mode='a'):
+    def write(self, path=None, mode='a'):
         if path:
-            with codecs.open(path,mode,encoding='utf-8') as f:
+            with codecs.open(path, mode, encoding='utf-8') as f:
                 f.write(str(self.data))
                 f.write('\n')
                 logger.info(f'点评 ID:{self.id},店铺:{self.shopName} 保存成功,文件路径:{path}')
-
-
-

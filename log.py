@@ -1,16 +1,17 @@
-#coding:utf-8
+# coding:utf-8
 import sys
 import config
 import logging
 
 __all__ = ['getLogger']
 
+
 def getLogger(name):
     logger = Logger(name)
     return logger.logger
 
-class Logger(object):
 
+class Logger(object):
     settings = None
     encoding = 'utf-8'
 
@@ -19,11 +20,11 @@ class Logger(object):
             cls._instance = super(Logger, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self,name):
+    def __init__(self, name):
         self.logger = logging.getLogger(name)
         self._set_logger(self.logger)
 
-    def _set_logger(self,logger):
+    def _set_logger(self, logger):
         logger.setLevel(logging.DEBUG)
         if logger.hasHandlers():
             return
@@ -40,8 +41,8 @@ class Logger(object):
             encoding = config.LOG_FILE_ENCODING
             _formatter = config.LOG_FORMAT[_level]
             _datefmt = config.LOG_DATE_FORMAT
-            level = getattr(logging,_level)
-            formatter = logging.Formatter(_formatter,datefmt=_datefmt)
+            level = getattr(logging, _level)
+            formatter = logging.Formatter(_formatter, datefmt=_datefmt)
             if f_path:
                 encoding = encoding if encoding else cls.encoding
                 f_handler = logging.FileHandler(f_path,
@@ -56,6 +57,3 @@ class Logger(object):
         else:
             handlers.append(logging.NullHandler())
         return handlers
-
-
-

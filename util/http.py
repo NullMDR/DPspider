@@ -89,7 +89,7 @@ def send_http(session, method, url, *,
                 success_callback(response)
             logger.debug(f'请求成功:[代理:{proxy},UA:{headers["User-Agent"]}]')
             return response, proxy, headers
-        except:
+        except Exception as e:
             if RANDOM_SLEEP:
                 time.sleep(random.uniform(*RANDOM_INTERVAL))
             else:
@@ -111,33 +111,28 @@ def should_verify(resp):
 
 
 def fake_detail_response(resp, kind):
-    html = bs(resp.text, 'lxml')
-    if not html('h1', class_='shop-name') and kind == 'SHOP':
-        return True
+    return kind == 'SHOP' and\
+           not bs(resp.text, 'lxml')('h1', class_='shop-name')
 
 
 def fake_pages_response(resp, kind):
-    html = bs(resp.text, 'lxml')
-    if not html('div', class_='tit') and kind == 'PAGE':
-        return True
+    return kind == 'PAGE' and\
+           not bs(resp.text, 'lxml')('div', class_='tit')
 
 
 def fake_css_response(resp, kind):
-    a = re.findall(PATTERN_BACKGROUND, resp.text)
-    if not a and kind == 'CSS':
-        return True
+    return kind == 'CSS' and\
+           not re.findall(PATTERN_BACKGROUND, resp.text)
 
 
 def fake_city_response(resp, kind):
-    html = bs(resp.text, 'lxml')
-    if not html('ul', class_='first-cate') and kind == 'CITY':
-        return True
+    return kind == 'CSS' and\
+           not bs(resp.text, 'lxml')('ul', 'first-cate')
 
 
 def fake_city_list_response(resp, kind):
-    html = bs(resp.text, 'lxml')
-    if not html('div', class_='main-citylist') and kind == 'CITY_LIST':
-        return True
+    return kind == 'CITY_LIST' and\
+           not bs(resp.text, 'lxml')('div', class_='main-citylist')
 
 
 def fake_json_response(resp, kind):
@@ -149,9 +144,8 @@ def fake_json_response(resp, kind):
 
 
 def fake_map_response(resp, kind):
-    html = bs(resp.text, 'lxml')
-    if not html('div', class_='screen-filter') and kind == 'MAP':
-        return True
+    return kind == 'MAP' and\
+           not bs(resp.text, 'lxml')('div', class_='screen-filter')
 
 
 def fetch(session, url, ip, fobj, lock, headers=HEADERS):
