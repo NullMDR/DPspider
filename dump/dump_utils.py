@@ -84,7 +84,7 @@ def set_last_failed_url(url: AnyStr or None):
 
 def retry_url_in_browser(url: AnyStr):
     async def refresh():
-        browser = await launch()
+        browser = await launch(headless=False)
         page = await browser.newPage()
         await asyncio.wait([
             page.goto(url),
